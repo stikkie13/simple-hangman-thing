@@ -17,11 +17,10 @@ class hangman:
         else:
             wrongGuess = 'there is no \'{}\' in the word'
             self.score += 1
-            print(self.score)
             return wrongGuess.format(letter) + '\n' + self.ShowGuess()
         
     def points(self):
-        return self.score >= 7
+        return self.score < 7
 
     def ShowGuess(self):
         x = ''.join(self.Guess)
@@ -30,18 +29,30 @@ class hangman:
 
 Hangman = hangman(input('choose the word: ',))
 
+
 while Hangman.word != Hangman.Guess:
+    if Hangman.score():
+        print('you lose')
+        break
     print(Hangman.check(input("choose a letter:")))
 else:
     print('correct! the word was: '+ Hangman.ShowGuess())
 
-#---------------
-#_______
-# |   |
-# |  ( )
-# |  /|\
-# |   |
-# |  / \
-# | ____
-# |/    \
-# --------------
+
+'''
+[
+    ---------------,
+      ____         ,
+     |/  |         ,
+     |  (_)        ,
+     |  /|\        ,
+     |   |         ,
+     |  / \        ,
+     |_____        ,
+     /     \       ,
+     --------------
+]
+
+Man = ["  ____         "," |/  |         "," |  (_)       "," |  /|\        "," |   |         "," |  / \        "," |_____        "," /     \       "]
+
+'''
