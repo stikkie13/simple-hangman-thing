@@ -37,22 +37,3 @@ while Hangman.word != Hangman.Guess:
     print(Hangman.check(input("choose a letter:")))
 else:
     print('correct! the word was: '+ Hangman.ShowGuess())
-
-
-'''
-[
-    ---------------,
-      ____         ,
-     |/  |         ,
-     |  (_)        ,
-     |  /|\        ,
-     |   |         ,
-     |  / \        ,
-     |_____        ,
-     /     \       ,
-     --------------
-]
-
-Man = ["  ____         "," |/  |         "," |  (_)       "," |  /|\        "," |   |         "," |  / \        "," |_____        "," /     \       "]
-
-'''

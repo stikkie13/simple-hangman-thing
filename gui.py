@@ -1,9 +1,14 @@
 from tkinter import *
 root = Tk()
-root.title('test')
+root.title('Hangman: the game')
 
 def placement(widget, height, width):
-    return widget.place(in_ = frame, anchor=N, relx=width, rely=height)  
+    return widget.place(in_ = frame, anchor=N, relx=width, rely=height)
+
+def guessing(letter, index, mode):
+    print(guess.get(), len(guess.get()), str(inputField.state))
+    if len(guess.get()) >= 1:
+        inputField.state = DISABLED
 
 #widgets
 frame = Frame(root)
@@ -29,7 +34,11 @@ armright = display.create_line(125,105,140,120, fill="black", width=2)
 legLeft = display.create_line(125,150,110,180, fill="black", width=2)
 legright = display.create_line(125,150,140,180, fill="black", width=2)
 
-inputField = Entry(frame,width=1,justify=CENTER,bd=0)
+guess = StringVar(root, value='')
+guess.trace_add('write', guessing)
+
+inputField = Entry(frame,width=1,justify=CENTER,bd=0,state=NORMAL,readonlybackground="white",textvariable=guess)
+
 
 FlavourText = Label(frame, text="choose a letter:")
 
@@ -42,6 +51,8 @@ placement(display, 0.15, 0.5)
 root.geometry("400x400")
 root.minsize(400,400)
 root.maxsize(400,400)
+
+
 
 #run the bitch
 root.mainloop()
