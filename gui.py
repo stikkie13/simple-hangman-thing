@@ -2,8 +2,7 @@ from tkinter import *
 from hangman import hangman
 root = Tk()
 root.title('Hangman: the game')
-Hangman = hangman('hello')
-"""input('choose the word: ',)"""
+Hangman = hangman(input('choose the word: ',))
 def placement(widget, height, width):
     return widget.place(in_ = frame, anchor=N, relx=width, rely=height)
 
