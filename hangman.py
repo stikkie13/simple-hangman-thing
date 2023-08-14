@@ -22,6 +22,8 @@ class hangman:
         x = ''.join(self.Guess)
         return x
 
+    def didYouWin(self):
+        return self.word == self.Guess
 
 
 '''

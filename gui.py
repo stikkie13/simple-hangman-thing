@@ -13,15 +13,18 @@ def guessing(letter, index, mode):
     Canvas.itemconfig(self=display, tagOrId="item-"+str(Hangman.score), state=NORMAL)
     if Hangman.points():
         inputField.config(state=DISABLED)
+    if Hangman.didYouWin():
+        inputField.config(state=DISABLED)
+        theWord.config(fg="green", bg="yellow")
 
 #widgets
 frame = Frame(root)
 frame.pack(expand=True,fill=BOTH)
 
 #The visuals----------------
-display = Canvas(frame, height= 250,width=250)
+display = Canvas(frame, height= 250,width=250 , background="lightblue")
 #stage 1
-hill = display.create_oval(0,200,250,310, outline="black", fill="black", width=2, state=HIDDEN, tags="item-1")
+hill = display.create_oval(0,200,250,310, outline="black", fill="green", width=2, state=HIDDEN, tags="item-1")
 pole = display.create_line(70,205,70,45, fill="black", width= 4, state=HIDDEN, tags="item-1")
 #stage 2
 support = display.create_line(70,70,90,50, fill="black", width= 2, state=HIDDEN, tags="item-2")
@@ -53,7 +56,7 @@ FlavourText = Label(frame, text="choose a letter:")
 placement(inputField, 0.9, 0.5)
 placement(FlavourText, 0.83, 0.5)
 placement(display, 0.15, 0.5)
-placement(theWord, 0.13, 0.5)
+placement(theWord, 0.1, 0.5)
 
 #set the size of the window
 root.geometry("400x400")
