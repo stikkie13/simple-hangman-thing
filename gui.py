@@ -22,7 +22,7 @@ frame = Frame(root)
 frame.pack(expand=True,fill=BOTH)
 
 #The visuals----------------
-display = Canvas(frame, height= 250,width=250 , background="lightblue")
+display = Canvas(frame, height= 250,width=250 , background="blue")
 #stage 1
 hill = display.create_oval(0,200,250,310, outline="black", fill="green", width=2, state=HIDDEN, tags="item-1")
 pole = display.create_line(70,205,70,45, fill="black", width= 4, state=HIDDEN, tags="item-1")
