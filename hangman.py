@@ -3,7 +3,8 @@ class hangman:
         self.word = list(word)
         self.Guess = ['_' for i in self.word]
         self.score = 0
-    
+        self.alphabet = ['_' for i in range(26)]
+
     def check(self, letter):
         if letter in self.word:
             j = []
@@ -14,13 +15,22 @@ class hangman:
                 self.Guess[i] = letter
         else:
             self.score += 1
-        
+
+    def guessed(self, letter):
+        if letter not in self.alphabet:
+            self.alphabet[ord(letter) - 97] = letter
+            return True
+        else:
+            return False        
+
     def points(self):
         return self.score > 5
 
     def ShowGuess(self):
-        x = ''.join(self.Guess)
-        return x
+        return ''.join(self.Guess)
+    
+    def GuessedLetters(self):
+        return ''.join(self.alphabet)
 
     def didYouWin(self):
         return self.word == self.Guess
