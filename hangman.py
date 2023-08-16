@@ -27,10 +27,10 @@ class hangman:
         return self.score > 5
 
     def ShowGuess(self):
-        return ''.join(self.Guess)
+        return ' '.join(self.Guess)
     
     def GuessedLetters(self):
-        return ''.join(self.alphabet)
+        return ' '.join(self.alphabet)
 
     def didYouWin(self):
         return self.word == self.Guess

@@ -11,14 +11,16 @@ def guessing(letter, index, mode):
         inputField.delete(1,END)
     
     if Hangman.guessed(guess.get()):    #check if already guessed
-        Hangman.check(guess.get())      #
-        Canvas.itemconfig(self=display, tagOrId="item-"+str(Hangman.score), state=NORMAL)
+        Hangman.check(guess.get())      #check if guess is correct
+        Canvas.itemconfig(self=display, tagOrId="item-"+str(Hangman.score), state=NORMAL) #display score with canvas items
         inputField.delete(0)
-        if Hangman.points():
+        
+        if Hangman.points():            #lose
             inputField.config(state=DISABLED)
-        if Hangman.didYouWin():
+        if Hangman.didYouWin():         #win
             inputField.config(state=DISABLED)
             Canvas.itemconfig(self=display, tagOrId="item-win", state=NORMAL)
+    
     theWord.config(text=Hangman.ShowGuess())
     guessedLetters.config(text=Hangman.GuessedLetters())
 
